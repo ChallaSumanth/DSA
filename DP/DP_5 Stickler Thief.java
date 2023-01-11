@@ -1,4 +1,4 @@
-// GFG //Amazon,OYO
+// GFG  //Amazon,OYO
 //1.Recursion 
 class Solution
 {
