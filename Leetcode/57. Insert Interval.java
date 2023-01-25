@@ -1,3 +1,6 @@
+// java guides
+//Techinfo YT
+
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> merged = new LinkedList<>();
