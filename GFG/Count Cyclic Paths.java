@@ -122,3 +122,26 @@ class Solution{
 	}
 }
 
+//4.Space optimization
+
+class Solution{
+	public static int countPaths(int N){
+		//code here
+		int mod = (int)1e9 + 7;
+		long o = 1;
+		long a = 0, b = 0, c = 0;
+		for(long i = 1; i <= N; i++)
+		{
+		    long temp1 = (a + b + c) % mod;
+		    long temp2 = (o + b + c) % mod;
+		    long temp3 = (a + o + c) % mod;
+		    long temp4 = (a + b + o) % mod;
+		    
+		    o = temp1;
+		    a = temp2;
+		    b = temp3;
+		    c = temp4;
+		}
+		return (int)o;
+	}
+}
