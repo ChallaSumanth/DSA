@@ -51,3 +51,27 @@ class Solution {
         return dp[n - 1][m - 1];
     }
 };
+
+//Tabalation one pass
+
+class Solution {
+    static int uniquePaths(int n, int m, int[][] grid) {
+        // code here
+        if(grid[0][0] == 0) return 0;
+        int mod = (int)1e9+7;
+        int [][] dp = new int[n+1][m+1];
+        dp[1][1] = 1;
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= m; j++)
+            {
+                if(i == 1 && j == 1) continue;
+                if(grid[i - 1][j - 1] == 1)
+                {
+                    dp[i][j] = (dp[i - 1][j] + dp[i][j - 1]) % mod;
+                }
+            }
+        }
+        return dp[n][m];
+    }
+};
