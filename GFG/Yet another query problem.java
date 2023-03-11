@@ -37,4 +37,34 @@ class Solution {
         return ans;
     }
 }
+
+//2.optimal
+class Solution {
+    public static ArrayList<Integer> solveQueries(int N, int num, int[] A, int[][] Q) {
+        // code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        int[] temp = new int[N];
+        for(int i = 0; i < N; i++)
+        {
+            int count = 1;
+            for(int j = i + 1; j < N; j++)
+                if(A[i] == A[j]) count++;
+            temp[i] = count;
+        }
+        
+        for(int i = 0; i < num; i++)
+        {
+            int start = Q[i][0];
+            int end = Q[i][1];
+            int k = Q[i][2];
+            int count = 0;
+            for(int j = start; j <= end; j++)
+                if(temp[j] == k) count++;
+            ans.add(count);
+        }
+        return ans;
+    }
+}
+        
+
         
