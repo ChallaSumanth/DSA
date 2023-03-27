@@ -26,9 +26,9 @@ class Solution {
     private int solve(int[][] grid, int row, int col, int[][] dp)
     {
         if(dp[row][col] != -1) return dp[row][col];
-        if(row == 0 && col == 0) return grid[row][col];
-        if(row == 0) return grid[row][col] + solve(grid, row, col - 1, dp);
-        if(col == 0) return grid[row][col] + solve(grid, row - 1, col, dp);
+        if(row == 0 && col == 0) return dp[row][col] = grid[row][col];
+        if(row == 0) return dp[row][col] = grid[row][col] + solve(grid, row, col - 1, dp);
+        if(col == 0) return dp[row][col] = grid[row][col] + solve(grid, row - 1, col, dp);
         return dp[row][col] = grid[row][col] + Math.min(solve(grid, row, col - 1, dp), solve(grid, row - 1, col, dp));
     }
 }
