@@ -19,3 +19,26 @@ class Solution {
         return dp[index][time] = Math.max(include, exclude);
     }
 }
+//2.
+class Solution {
+    public int maxSatisfaction(int[] satisfaction) {
+        Arrays.sort(satisfaction);
+        int len = satisfaction.length;
+        int start = len - 1;
+        int total = 0;
+        for(int i = len - 1; i >= 0; i--)
+        {
+            total += satisfaction[i];
+            if(total < 0) break;
+            start--;
+        }
+        start++;
+        int k = 1;
+        total = 0;
+        for(int i = start; i < len; i++)
+        {
+            total += (k++) * satisfaction[i];
+        }
+        return total;
+    }
+}
