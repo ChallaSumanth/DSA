@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 //https://practice.geeksforgeeks.org/problems/even-swap/1
 
 class Solution{
