@@ -13,7 +13,7 @@ class Solution {
                 if(!st.isEmpty() && st.peek() == Math.abs(asteroid))
                     st.pop();
                 else{
-                    if(st.isEmpty() && asteroid < 0)
+                    if(st.isEmpty() || st.peek() < 0)
                         st.push(asteroid);
                 }
             }
